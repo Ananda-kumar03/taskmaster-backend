@@ -66,7 +66,7 @@ router.post('/login', async (req, res) => {
   return res.status(403).json({ message: 'Please verify your email first' });
 }
 
-        const token = jwt.sign({ userId: user._id }, '83f9a9d65609930d511a776dd96d805faeef19a2fa388532be5f758da8b0cdd82b501fd4faaccabf31533aba0c9386e718c58e5fba7c88919b53a4d3cc1ce0a6', { expiresIn: '1h' }); // Replace 'your-secret-key'
+        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
         res.json({ token, userId: user._id });
     } catch (error) {
         res.status(500).json({ message: 'Error logging in', error: error.message });
