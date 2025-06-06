@@ -6,7 +6,6 @@ const User = require('../models/User');
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 
-// Register a new user
 router.post('/register', async (req, res) => {
     const { username, password, firstName, email, lastName, phone } = req.body;
 
