@@ -27,7 +27,7 @@ router.post('/register', async (req, res) => {
       }
     });
 
-    const link = `http://localhost:5173/verify-email/${verificationToken}`;
+    const link = `https://taskmastertodo.netlify.app/verify-email/${verificationToken}`;
     await transporter.sendMail({
       to: email,
       subject: 'Verify your email',
@@ -98,7 +98,7 @@ router.post('/request-password-reset', async (req, res) => {
     }
   });
 
-  const resetLink = `http://localhost:5173/reset-password/${token}`;
+  const resetLink = `https://taskmastertodo.netlify.app/reset-password/${token}`;
 
   await transporter.sendMail({
     to: user.email,
@@ -171,7 +171,7 @@ router.post('/resend-verification', async (req, res) => {
     }
   });
 
-  const link = `http://localhost:5173/verify-email/${token}`;
+  const link = `https://taskmastertodo.netlify.app/verify-email/${token}`;
   await transporter.sendMail({
     to: email,
     subject: '🔁 Resend Email Verification',
